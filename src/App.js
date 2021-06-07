@@ -1,23 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import CounterClass from './CounterClass';
+import CounterFunc from './CounterFunc';
+import {useState} from 'react'
+import ContactApp from './ContactApp';
 
 function App() {
+  const [t1, setT1] = useState(true)
+  const [t2, setT2] = useState(true)
+  if( true) {
+    return <ContactApp />
+   }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div onClick={()=> setT1(!t1)}>toggle 1</div>
+      <div onClick={()=> setT2(!t2)}>toggle 2</div>
+      {t1 &&<CounterFunc name='functional counter demo'/>}
+      {t2 && <CounterClass name='class counter demo' />}
     </div>
   );
 }
